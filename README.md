@@ -81,3 +81,8 @@ you can go to [w3forms](https://web3forms.com) to get your api key and also read
 
 If you have any feedback, please reach out to us at wolfie8935@gmail.com
 
+
+## Support
+
+[![Buy Me a Coffee](https://img.buymeacoffee.com/button-api/?username=your_username&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff)](https://www.buymeacoffee.com/wolfie8935)
+
