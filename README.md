@@ -14,6 +14,7 @@ Welcome to my digital realm, where each click is an invitation to discover the d
 - Sections for about, resume, testimonials, and contact
 - Pure HTML, CSS, and JS
 - No php for contact form
+- ChatBot with AI built into it trained to answer my website questions
 
 
 ## Demo
@@ -63,6 +64,7 @@ you can go to [w3forms](https://web3forms.com) to get your api key and also read
 
  - [FreeFrontend](https://freefrontend.com)
  - [BootstrapMade](https://bootstrapmade.com)
+ - [Botpress Studio](https://botpress.com)
 
 
 ## License
