@@ -625,7 +625,25 @@
 
 <!-- chatbot -->
 <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-<script src="https://mediafiles.botpress.cloud/8ae37a2a-04f1-436e-a969-11f11e359978/webchat/config.js" defer></script>
+<script>
+  window.botpressWebChat.init({
+      "composerPlaceholder": "Chat with me",
+      "botConversationDescription": "This chatbot was built by Aman",
+      "botId": "8ae37a2a-04f1-436e-a969-11f11e359978",
+      "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+      "messagingUrl": "https://messaging.botpress.cloud",
+      "clientId": "8ae37a2a-04f1-436e-a969-11f11e359978",
+      "webhookId": "84c9506c-9c28-417f-a6d5-b4b0396cba6b",
+      "lazySocket": true,
+      "themeName": "prism",
+      "frontendVersion": "v1",
+      "useSessionStorage": true,
+      "enableConversationDeletion": true,
+      "theme": "prism",
+      "themeColor": "#2563eb"
+  });
+</script>
+
 
 
 </body>
