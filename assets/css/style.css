@@ -208,14 +208,14 @@ h6 {
 /* Mobile Navigation */
 .mobile-nav-toggle {
   position: fixed;
-  right: 15px;
-  top: 15px;
+  right: 25px;
+  top: 25px;
   z-index: 9998;
   border: 0;
   font-size: 24px;
   transition: all 0.4s;
   outline: none !important;
-  background-color: #149ddd;
+  background-color: rgb(58, 54, 54);
   color: #fff;
   width: 40px;
   height: 40px;
@@ -225,6 +225,10 @@ h6 {
   line-height: 0;
   border-radius: 50px;
   cursor: pointer;
+  transition: background-color 0.4s;
+}
+.mobile-nav-toggle:hover {
+  background-color: blueviolet;
 }
 
 .mobile-nav-active {
