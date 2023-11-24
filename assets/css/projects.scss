@@ -1,0 +1,111 @@
+*{
+    box-sizing: border-box;
+  }
+  
+  $border: 1px solid #4d4d4d;
+  $header-font: 'Open Sans', sans-serif;
+  
+  img{
+    width: 100%;
+    border-radius: 5px;
+    @media screen and (max-width: 599px){
+      height: 250px;
+      object-fit: cover;
+    }
+  }
+  body{
+    background: white;
+    color: #2b2a2b;
+    margin: 0;
+    padding: 0;
+  }
+  
+  main{
+    padding: 2rem;
+    max-width: 1400px;
+    margin: auto;
+  
+  }
+  
+  h1{
+    font-family:  $header-font;
+  }
+  h2{
+    color: #ed666f;
+    font-family: $header-font;
+    font-weight: 500;
+  }
+  
+  h3{
+    font-family: $header-font;
+    font-weight: 500;
+    margin: 0.5rem 0;
+  }
+  
+  .grid-wrapper{
+  
+    // Adding grid layout for screen size above 600 
+    @media screen and (min-width: 600px){
+      display: grid;
+      grid-auto-flow: column;
+      grid-gap: 1rem;
+     
+    }
+  
+    @media screen and (min-width: 1025px){
+      grid-template-columns: 1fr 2fr 1fr 2fr;
+    }
+    @media screen and (min-width: 600px) and (max-width: 1024px){
+      grid-template-columns: 1fr 2fr;
+    }
+  
+  }
+  
+  article{
+    p{
+      font-family: 'Karla', sans-serif;
+      font-size: 0.95rem;
+      color: #333232;
+    }
+    padding-bottom: 1rem;
+    border-bottom: $border;
+  
+  
+    // using Grid area to place the 4th and 8th element. 
+  
+    &:nth-child(4){
+      grid-area: 1/2/4/3;   
+    }
+  
+    &:nth-child(8){
+      @media screen and (min-width: 1025px){
+        grid-area: 1/4/4/-1;
+      }
+      @media screen and (min-width: 600px) and (max-width: 1024px){
+        grid-area: 4/2/8/3;
+      }
+    }
+  
+    &:nth-child(4n+3){
+      @media screen and (min-width: 1025px){
+        border-bottom: 0;
+      }   
+    }
+    &:nth-child(4){
+      @media screen and (min-width: 1025px){
+        border-right: $border;
+        padding-right: 1rem;
+      }
+  
+    }
+    &:nth-child(4n){
+      @media screen and (min-width: 600px){
+        border-left: $border;
+        border-bottom: 0;
+        padding-left: 1rem;
+      }
+    }
+  
+  
+  }
+  
