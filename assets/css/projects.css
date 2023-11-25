@@ -127,7 +127,7 @@ article {
         align-items: flex-end;
         background-size: cover;
         background-position: center;
-        box-shadow: 0 0 2em black;
+        box-shadow: 0 0 1em black;
         transition: all, var(--transition-time);
         position: relative;
         overflow: hidden;
@@ -276,16 +276,58 @@ article {
           text-align: center;
         }
         .small_projects{
-          display: none;
+          size: 10%;
+        }
+        .issues{
+          padding-left: 0;
+          margin-left: 0;
+        }
+      }
+      @media screen and (max-width: 840px) {
+        .testing{
+          visibility: collapse;
         }
       }
       
       @media screen and (max-width: 500px) {
         .cards-wrapper {
-          padding: 4rem 2rem;
+          padding: 1px;
         }
         .card {
           max-width: calc(100vw - 4rem);
+          box-shadow: none;
+        }
+        .small_projects{
+          size: 1%;
+          font-size: 1%;
+        }
+        #issues li h1 {
+          color: blue;
+          text-shadow: #000 1px 1px 2px;
+          text-align: left;
+        }
+        #issues li p {
+          font-size: auto;
+          margin-right: 70px;
+          font-weight: normal;
+          line-height: 22px;
+          position: auto;
+        }
+        #issues {
+          width: 100%;
+          height: 350px;
+          overflow: hidden;
+        }        
+        #issues li {
+          width: 100%;
+          height: 350px;
+          list-style: none;
+          text-align: left;
+          align-items: start;
+          float: left;
+        }
+        .testing{
+          visibility: collapse;
         }
       }
       
@@ -332,7 +374,7 @@ article {
       
       
       .sociales {
-        text-align: center;
+        /* text-align: center; */
         margin-bottom: 20px;
       }
       
@@ -357,7 +399,7 @@ article {
         width: 100px;
         height: 50px;
         font-size: 24px;
-        text-align: center;
+        /* text-align: center; */
         background: url('../images/biggerdot.png') center bottom no-repeat;
       }
       
@@ -378,7 +420,7 @@ article {
       
       #issues li {
         width: 800px;
-        height: 350px;
+        height: auto;
         list-style: none;
         float: left;
       }
@@ -393,7 +435,7 @@ article {
       
       #issues li img {
         float: left;
-        margin: 10px 30px 10px 50px;
+        margin: 0;
         background: transparent;
         -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)";
         /* IE 8 */
@@ -416,17 +458,16 @@ article {
       
       #issues li h1 {
         color: blue;
-        font-size: 48px;
         margin: 20px 0;
         text-shadow: #000 1px 1px 2px;
         text-align: center;
-        padding-left: 70px;
+        /* padding-left: 70px; */
       }
       
       #issues li p {
         font-size: 14px;
         margin-right: 70px;
-        margin-left: 70px;
+        /* margin-left: 70px; */
         font-weight: normal;
         line-height: 22px;
       }
@@ -482,3 +523,44 @@ article {
       }
       
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+      
+
+
+
+
+
+
+      
