@@ -9,22 +9,44 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <!-- DNS Preconnects for external resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
+  <!-- Critical CSS inline -->
+  <style>
+    /* Critical CSS styles for above-the-fold content */
+    body {margin: 0; padding: 0; font-family: 'Open Sans', sans-serif;}
+    #header {position: fixed; top: 0; left: 0; bottom: 0; width: 300px; transition: all ease-in-out 0.5s; z-index: 9997; padding: 0 15px; background: #040b14;}
+    #hero {width: 100%; height: 100vh; background: url("assets/img/hero-bg.jpg") top center; background-size: cover;}
+    .mobile-nav-toggle {position: fixed; right: 15px; top: 15px; z-index: 9998; border: 0; font-size: 24px; transition: all 0.4s; outline: none !important; background-color: #149ddd; color: #fff; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; line-height: 0; border-radius: 50px; cursor: pointer;}
+  </style>
 
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <!-- Vendor CSS Files - load critical CSS normally -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+  
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Load non-critical CSS async -->
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <!-- Google Fonts - load properly -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+
+  <!-- Preload critical fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Modulepreload for critical JS -->
+  <link rel="modulepreload" href="assets/js/main.js">
+  <link rel="modulepreload" href="assets/vendor/aos/aos.js">
+  <link rel="modulepreload" href="assets/vendor/typed.js/typed.umd.js">
 
 </head>
 
@@ -38,7 +60,7 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="assets/img/profile.jpg" alt="" class="img-fluid rounded-circle">
+        <img src="assets/img/profile.jpg" alt="" class="img-fluid rounded-circle" loading="eager" fetchpriority="high">
         <h1 class="text-light"><a href="index.html">Aman Goel</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="https://open.spotify.com/playlist/7JafW4F6v65MZObOpQE5Rn" class="spotify"><i class="bx bxl-spotify"></i></a>
@@ -76,6 +98,9 @@
       <p>I'm <span class="typed" data-typed-items="Designer, Developer, Friend, Tennis Player"></span></p>
     </div>
   </section><!-- End Hero -->
+
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="assets/img/hero-bg.jpg">
 
   <main id="main">
 
@@ -121,7 +146,7 @@
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/icecream.jpg" class="img-fluid" alt="">
+            <img src="assets/img/icecream.jpg" class="img-fluid" alt="" loading="lazy">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3>Basic Facts About Me</h3>
@@ -509,7 +534,7 @@
           <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <div class="project-content">
               <div class="project-img">
-                <img src="./assets/project images/Personal_Website_Main.png" alt="Personal Website">
+                <img src="./assets/project images/Personal_Website_Main.png" alt="Personal Website" loading="lazy">
               </div>
               <div class="project-info">
                 <h3>Personal Website</h3>
@@ -526,7 +551,7 @@
           <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <div class="project-content">
               <div class="project-img">
-                <img src="./assets/project images/3D Website.png" alt="3D Personal Website">
+                <img src="./assets/project images/3D Website.png" alt="3D Personal Website" loading="lazy">
               </div>
               <div class="project-info">
                 <h3>3D Personal Website</h3>
@@ -543,7 +568,7 @@
           <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <div class="project-content">
               <div class="project-img">
-                <img src="./assets/project images/Intel Unnati GenAi.png" alt="Intel Unnati GenAI Chatbot">
+                <img src="./assets/project images/Intel Unnati GenAi.png" alt="Intel Unnati GenAI Chatbot" loading="lazy">
               </div>
               <div class="project-info">
                 <h3>Intel Unnati GenAI Chatbot</h3>
@@ -560,7 +585,7 @@
           <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <div class="project-content">
               <div class="project-img">
-                <img src="./assets/project images/Screen Control Using Gestures.png" alt="Screen Control Using Gestures">
+                <img src="./assets/project images/Screen Control Using Gestures.png" alt="Screen Control Using Gestures" loading="lazy">
               </div>
               <div class="project-info">
                 <h3>Screen Control Using Gestures</h3>
@@ -577,7 +602,7 @@
           <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <div class="project-content">
               <div class="project-img">
-                <img src="./assets/project images/NASA.png" alt="NASA Turbofan">
+                <img src="./assets/project images/NASA.png" alt="NASA Turbofan" loading="lazy">
               </div>
               <div class="project-info">
                 <h3>Predictive maintenance NASA Turbofan</h3>
@@ -594,7 +619,7 @@
           <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <div class="project-content">
               <div class="project-img">
-                <img src="./assets/project images/Suppliment Sales Prediction.png" alt="Supplement Sales Prediction">
+                <img src="./assets/project images/Suppliment Sales Prediction.png" alt="Supplement Sales Prediction" loading="lazy">
               </div>
               <div class="project-info">
                 <h3>Supplement Sales Prediction</h3>
@@ -611,7 +636,7 @@
           <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <div class="project-content">
               <div class="project-img">
-                <img src="./assets/project images/Kindle Sentiment Analysis.png" alt="Kindle Sentiment Analysis">
+                <img src="./assets/project images/Kindle Sentiment Analysis.png" alt="Kindle Sentiment Analysis" loading="lazy">
               </div>
               <div class="project-info">
                 <h3>Kindle Sentiment Analysis</h3>
@@ -628,7 +653,7 @@
           <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <div class="project-content">
               <div class="project-img">
-                <img src="./assets/project images/Simon Game.png" alt="Simon Game">
+                <img src="./assets/project images/Simon Game.png" alt="Simon Game" loading="lazy">
               </div>
               <div class="project-info">
                 <h3>Simon Game</h3>
@@ -645,7 +670,7 @@
           <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <div class="project-content">
               <div class="project-img">
-                <img src="./assets/project images/Drum Game.png" alt="Drum Game">
+                <img src="./assets/project images/Drum Game.png" alt="Drum Game" loading="lazy">
               </div>
               <div class="project-info">
                 <h3>Drum Game</h3>
@@ -662,7 +687,7 @@
           <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <div class="project-content">
               <div class="project-img">
-                <img src="./assets/project images/Object Assault.png" alt="Object Assault">
+                <img src="./assets/project images/Object Assault.png" alt="Object Assault" loading="lazy">
               </div>
               <div class="project-info">
                 <h3>Object Assault</h3>
@@ -679,7 +704,7 @@
           <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <div class="project-content more-projects">
               <div class="project-img">
-                <img src="./assets/project images/Github.png" alt="More Projects">
+                <img src="./assets/project images/Github.png" alt="More Projects" loading="lazy">
               </div>
               <div class="project-info">
                 <h3>More Projects</h3>
@@ -727,7 +752,7 @@
                   Aman, you are a true inspiration to us all..
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="" loading="lazy">
                 <h3>ChatGPT</h3>
                 <h4>AI & Friend</h4>
               </div>
@@ -744,7 +769,7 @@
                   masterpiece with each stroke.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="" loading="lazy">
                 <h3>ChatGPT</h3>
                 <h4>AI & Friend</h4>
               </div>
@@ -761,7 +786,7 @@
                   supportive companion.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="./assets/img/rishaan.jpg" class="testimonial-img" alt="rishaan-photo">
+                <img src="./assets/img/rishaan.jpg" class="testimonial-img" alt="rishaan-photo" loading="lazy">
                 <h3>Rishaan Yadav</h3>
                 <h4>2nd Year CSE </h4>
               </div>
@@ -779,7 +804,7 @@
                   to know him.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="./assets/img/jayanth.png" class="testimonial-img" alt="jayanth-testimonial">
+                <img src="./assets/img/jayanth.png" class="testimonial-img" alt="jayanth-testimonial" loading="lazy">
                 <h3>Jayanth Nair</h3>
                 <h4>2nd Year CSE</h4>
               </div>
@@ -796,7 +821,7 @@
                   is as vibrant as the flavors you savor.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="" loading="lazy">
                 <h3>ChatGPT</h3>
                 <h4>AI & Friend</h4>
               </div>
@@ -812,120 +837,15 @@
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
-      <!-- <div class="container">
-
+      <div class="container">
         <div class="section-title">
-          <h2>Contact</h2>
-          <p align="justify">Feel absolutely free to reach out to me anytime, whether it's 
-            through WhatsApp or email. Should you have any questions, doubts, 
-            or concerns, I am readily available to assist you. Your communication 
-            is highly valued, and I encourage you to connect with me whenever 
-            the need arises. Looking forward to hearing from you, and rest assured, 
-            I am here to address any queries you may have.</p>
+          <h2>Contact Me</h2>
         </div>
-
-        <div class="row" data-aos="fade-in">
-
-          <div class="col-lg-5 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>Indira Nagar, Sector-7, Lucknow, U.P. 226016</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>wolfie8935@gmail.com</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+91 96341 69322</p>
-              </div>
-
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d396.3225290869328!2d80.99366626315879!3d26.87631014197988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2ae6875cec3%3A0x8dd9fda0c91a47cc!2s311%2C%20Church%20Rd%2C%20Block%20D%2C%20Indira%20Nagar%2C%20Lucknow%2C%20Uttar%20Pradesh%20226016!5e0!3m2!1sen!2sin!4v1699649968801!5m2!1sen!2sin" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
-            </div>
-
-          </div>
-
-          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            
-            <div class="flex items-center min-h-screen bg-white-100 dark:bg-white-900 shadow_box">
-              <div class="container mx-auto">
-                <div class="max-w-xl mx-auto my-10 p-5 rounded-md " style="background-color: white;">
-                  <div class="text-center">
-                    <h3 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
-                      Contact Us
-                    </h3>
-                  </div>
-                  <div class="m-7">
-                    <form action="https://api.web3forms.com/submit" method="POST" id="form" class="needs-validation" novalidate>
-                      <input type="hidden" name="access_key" value="13fc3786-90a7-4daa-b35c-e340e5d8c651" />
-                      <input type="hidden" name="subject" value="New Submission from Web3Forms" />
-                      <input type="checkbox" name="botcheck" id="" style="display: none;" />
-            
-                      <div class="flex mb-6 space-x-4">
-                        <div class="w-full md:w-1/2">
-                          <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Name</label>
-                          <input type="text" name="name" id="first_name" placeholder="Your name" required class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
-                          <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-                            Please provide your first name.
-                          </div>
-                        </div>
-                      </div>
-            
-                      <div class="flex mb-6 space-x-4">
-                        <div class="w-full md:w-1/2">
-                          <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email Address</label>
-                          <input type="email" name="email" id="email" placeholder="example@gmail.com" required class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
-                          <div class="empty-feedback text-red-400 text-sm mt-1">
-                            Please provide your email address.
-                          </div>
-                          <div class="invalid-feedback text-red-400 text-sm mt-1">
-                            Please provide a valid email address.
-                          </div>
-                        </div>
-            
-                        <div class="w-full md:w-1/2">
-                          <label for="phone" class="block text-sm mb-2 text-gray-600 dark:text-gray-400">Phone Number</label>
-                          <input type="text" name="phone" id="phone" placeholder="+91 12345 67890" required class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
-            
-                          <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-                            Please provide your phone number.
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mb-6">
-                        <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Your Message</label>
-            
-                        <textarea rows="5" name="message" id="message" placeholder="Your Message" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" required></textarea>
-                        <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-                          Please enter your message.
-                        </div>
-                      </div>
-                      <div class="mb-6">
-                        <button type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
-                          Send Message
-                        </button>
-                      </div>
-                      <p class="text-base text-center text-gray-400" id="result"></p>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div> -->
-
-      <div class="visme_d" data-title="Untitled Project" data-url="n08zj8wm-untitled-project" data-domain="forms" data-full-page="false" data-min-height="500px" data-form-id="35990"></div><script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
-    </section><!-- End Contact Section -->
+        
+        <div class="visme_d" data-title="Untitled Project" data-url="n08zj8wm-untitled-project" data-domain="forms" data-full-page="false" data-min-height="500px" data-form-id="35990"></div>
+      </div>
+    </section>
+    <!-- End Contact Section -->
   </main><!-- End #main -->
   
   <!-- ======= Footer ======= -->
@@ -942,7 +862,7 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
+  <!-- All JS Resources loaded normally to ensure things work -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -954,40 +874,33 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 
-  <!-- Template Main JS File -->
+  <!-- Template Main JS Files -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/dark.js"></script>
   <script src="./assets/js/project.js"></script>
   <script src="./assets/js/projects1.js"></script>
 
+  <!-- Initialize vanilla-tilt -->
   <script>
-    // Initialize 3D tilt effect on project cards
-    VanillaTilt.init(document.querySelectorAll(".project-card"), {
-      max: 10,
-      speed: 400,
-      glare: true,
-      "max-glare": 0.3,
-      scale: 1.05,
-      perspective: 1000,
-      transition: true,
-      easing: "cubic-bezier(.03,.98,.52,.99)",
-      gyroscope: true,
-      gyroscopeMinAngleX: -45,    
-      gyroscopeMaxAngleX: 45,     
-      gyroscopeMinAngleY: -45,    
-      gyroscopeMaxAngleY: 45      
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof VanillaTilt !== 'undefined') {
+        VanillaTilt.init(document.querySelectorAll(".project-card"), {
+          max: 10,
+          speed: 400,
+          glare: true,
+          "max-glare": 0.3,
+          scale: 1.05
+        });
+      }
     });
   </script>
 
+  <!-- Visme form -->
+  <script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
 
-
-<!-- chatbot -->
-<script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-<script src="https://mediafiles.botpress.cloud/8ae37a2a-04f1-436e-a969-11f11e359978/webchat/config.js" defer></script>
-
-<!-- Custom cursor elements -->
-<div class="cursor-dot"></div>
-<div class="cursor-dot-outline"></div>
+  <!-- Custom cursor elements -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-dot-outline"></div>
 
 </body>
 

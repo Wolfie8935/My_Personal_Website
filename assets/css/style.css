@@ -2130,3 +2130,221 @@ body {
     }
   }
   
+  /* Reduced motion settings for low-end devices */
+  .reduced-motion * {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reduced-motion [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .reduced-motion .achievement-item:hover {
+    transform: none !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05) !important;
+  }
+
+  .reduced-motion .achievement-item::before {
+    display: none !important;
+  }
+
+  .reduced-motion .counter-number {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .reduced-motion .progress-bar {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Media query to enhance performance on mobile */
+  @media (max-width: 768px) {
+    .swiper-slide {
+      will-change: auto !important;
+    }
+    
+    .progress-bar-wrap {
+      overflow: hidden;
+    }
+    
+    .testimonials-slider {
+      overflow: hidden;
+    }
+  }
+
+  /* Optimize repaints and reflows */
+  .progress-bar, .achievement-item, .project-card {
+    will-change: transform;
+  }
+
+  .hero-container, .swiper-slide, .project-content {
+    will-change: opacity, transform;
+  }
+  
+  /*--------------------------------------------------------------
+  # Contact Additional Styles
+  --------------------------------------------------------------*/
+  .info-box {
+    color: #444444;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(214, 215, 216, 0.3);
+    padding: 20px 0 30px 0;
+    background: rgba(255, 255, 255, 0.08);
+    height: 100%;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .info-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .info-box i {
+    font-size: 32px;
+    color: #149ddd;
+    border-radius: 50%;
+    padding: 20px;
+    background: rgba(20, 157, 221, 0.1);
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .info-box:hover i {
+    background: #149ddd;
+    color: #fff;
+  }
+
+  .info-box h3 {
+    font-size: 20px;
+    color: #173b6c;
+    font-weight: 700;
+    margin: 10px 0;
+  }
+
+  .info-box p {
+    padding: 0;
+    line-height: 24px;
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  .info-box a {
+    color: #149ddd;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .info-box a:hover {
+    color: #37b3ed;
+    text-decoration: underline;
+  }
+
+  .php-email-form {
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 30px rgba(214, 215, 216, 0.3);
+    border-radius: 10px;
+  }
+
+  .php-email-form .form-control {
+    border-radius: 4px;
+    box-shadow: none;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #dee2e6;
+    color: #212529;
+    padding: 10px 15px;
+    transition: all 0.3s;
+  }
+
+  .php-email-form .form-control:focus {
+    border-color: #149ddd;
+    box-shadow: 0 0 0 0.25rem rgba(20, 157, 221, 0.25);
+  }
+
+  .php-email-form button[type="submit"] {
+    background: #149ddd;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .php-email-form button[type="submit"]:hover {
+    background: #37b3ed;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Loading and message animations */
+  .php-email-form .loading {
+    display: none;
+    background: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    padding: 15px;
+    border-radius: 4px;
+  }
+
+  .php-email-form .loading:before {
+    content: "";
+    display: inline-block;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px -6px 0;
+    border: 3px solid #149ddd;
+    border-top-color: #eee;
+    animation: animate-loading 1s linear infinite;
+  }
+
+  .php-email-form .error-message {
+    display: none;
+    color: #fff;
+    background: #ed3c0d;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  .php-email-form .sent-message {
+    display: none;
+    color: #fff;
+    background: #18d26e;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  /* Dark mode contact styles */
+  [data-theme="dark"] .info-box {
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+  }
+
+  [data-theme="dark"] .info-box h3 {
+    color: #fff;
+  }
+
+  [data-theme="dark"] .info-box p {
+    color: #ddd;
+  }
+
+  [data-theme="dark"] .php-email-form {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  [data-theme="dark"] .php-email-form .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+  

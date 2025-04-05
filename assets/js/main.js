@@ -253,16 +253,17 @@
    * Animation on scroll
    */
   window.addEventListener('load', () => {
+    // Initialize AOS with standard settings
     AOS.init({
       duration: 1000,
       easing: 'ease-in-out',
       once: true,
       mirror: false
-    })
+    });
   });
 
   /**
-   * Initiate Pure Counter 
+   * Initiate Pure Counter
    */
   new PureCounter();
 
@@ -441,6 +442,59 @@ document.addEventListener('DOMContentLoaded', function() {
   animateCursor();
 });
 */
+
+// Register service worker for caching and better performance
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+    }, 3000);
+  });
+}
+
+// Implement requestIdleCallback polyfill for browsers that don't support it
+if (!('requestIdleCallback' in window)) {
+  window.requestIdleCallback = function(cb, options) {
+    const timeout = options?.timeout || 1;
+    return setTimeout(() => {
+      const start = Date.now();
+      cb({
+        didTimeout: false,
+        timeRemaining: function() {
+          return Math.max(0, 50 - (Date.now() - start));
+        }
+      });
+    }, timeout);
+  };
+  
+  window.cancelIdleCallback = function(id) {
+    clearTimeout(id);
+  };
+}
+
+// Progressive loading of non-critical resources
+window.addEventListener('load', () => {
+  requestIdleCallback(() => {
+    // Load non-critical CSS resources
+    const nonCriticalCSS = [
+      'assets/vendor/boxicons/css/animations.css',
+      'assets/vendor/boxicons/css/transformations.css'
+    ];
+    
+    nonCriticalCSS.forEach(href => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      document.head.appendChild(link);
+    });
+  }, { timeout: 5000 });
+});
 
 
 
