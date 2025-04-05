@@ -1,8 +1,3 @@
-
-
-
-
-
 (function() {
   "use strict";
 
@@ -158,6 +153,20 @@
   }
 
   /**
+   * Initialize progress bars manually
+   */
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      let progress = select('.progress .progress-bar', true);
+      if (progress) {
+        progress.forEach((el) => {
+          el.style.width = el.getAttribute('aria-valuenow') + '%';
+        });
+      }
+    }, 800);
+  });
+
+  /**
    * Porfolio isotope and filter
    */
   window.addEventListener('load', () => {
@@ -257,6 +266,42 @@
    */
   new PureCounter();
 
+  /**
+   * Dark mode toggle functionality
+   */
+  document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    
+    // Check for saved theme preference or respect OS preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Apply the saved theme or OS preference
+    if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+    
+    // Toggle the theme when button is clicked
+    themeToggle.addEventListener('click', () => {
+      // Check current theme
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      let newTheme;
+      
+      // Toggle between light and dark
+      if (currentTheme === 'light') {
+        newTheme = 'dark';
+      } else {
+        newTheme = 'light';
+      }
+      
+      // Apply new theme and save preference
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  });
+
 })()
 
 
@@ -334,6 +379,68 @@
     );
   });
 })();
+
+/**
+ * Custom cursor functionality - Disabled
+ */
+/*
+document.addEventListener('DOMContentLoaded', function() {
+  // Select the cursor dot and outline
+  const cursorDot = document.querySelector('.cursor-dot');
+  const cursorOutline = document.querySelector('.cursor-dot-outline');
+  
+  // Variables to store mouse position
+  let mouseX = 0;
+  let mouseY = 0;
+  
+  // Variables to store cursor position
+  let dotX = 0;
+  let dotY = 0;
+  let outlineX = 0;
+  let outlineY = 0;
+  
+  // Speed of cursor movement (lower = smoother/slower)
+  const dotSpeed = 0.2;
+  const outlineSpeed = 0.1;
+  
+  // Update mouse position on mousemove
+  document.addEventListener('mousemove', function(e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+  
+  // Animation function
+  function animateCursor() {
+    // Calculate new cursor positions with easing
+    dotX += (mouseX - dotX) * dotSpeed;
+    dotY += (mouseY - dotY) * dotSpeed;
+    outlineX += (mouseX - outlineX) * outlineSpeed;
+    outlineY += (mouseY - outlineY) * outlineSpeed;
+    
+    // Apply new positions
+    cursorDot.style.transform = `translate(${dotX}px, ${dotY}px)`;
+    cursorOutline.style.transform = `translate(${outlineX}px, ${outlineY}px)`;
+    
+    // Request next frame
+    requestAnimationFrame(animateCursor);
+  }
+  
+  // Hide cursor when mouse leaves window
+  document.addEventListener('mouseout', function() {
+    cursorDot.style.opacity = '0';
+    cursorOutline.style.opacity = '0';
+  });
+  
+  // Show cursor when mouse enters window
+  document.addEventListener('mouseover', function() {
+    cursorDot.style.opacity = '1';
+    cursorOutline.style.opacity = '1';
+  });
+  
+  // Start animation
+  animateCursor();
+});
+*/
 
 
 
