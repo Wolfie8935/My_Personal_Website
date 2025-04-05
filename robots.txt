@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wolfie8935.github.io/My_Personal_Website/sitemap.xml 
