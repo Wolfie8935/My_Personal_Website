@@ -30,6 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://static-bundles.visme.co" crossorigin>
 
   <!-- Critical CSS inline -->
   <style>
@@ -38,32 +39,37 @@
     #header {position: fixed; top: 0; left: 0; bottom: 0; width: 300px; transition: all ease-in-out 0.5s; z-index: 9997; padding: 0 15px; background: #040b14;}
     #hero {width: 100%; height: 100vh; background: url("assets/img/hero-bg.jpg") top center; background-size: cover;}
     .mobile-nav-toggle {position: fixed; right: 15px; top: 15px; z-index: 9998; border: 0; font-size: 24px; transition: all 0.4s; outline: none !important; background-color: #149ddd; color: #fff; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; line-height: 0; border-radius: 50px; cursor: pointer;}
+    .hero-container {position: relative; z-index: 2;}
+    .hero-container h1 {margin: 0 0 10px 0; font-size: 64px; font-weight: 700; line-height: 56px; color: #fff;}
+    .hero-container p {color: #fff; margin-bottom: 50px; font-size: 26px; font-family: "Poppins", sans-serif;}
+    .hero-text {font-size: 1.8rem; letter-spacing: 1px; font-weight: 400; display: inline-block; position: relative; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);}
   </style>
 
-  <!-- Vendor CSS Files - load critical CSS normally -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  
+  <!-- Vendor CSS Files - load critical CSS with highest priority -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" fetchpriority="high">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" fetchpriority="high">
+
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet" fetchpriority="high">
 
   <!-- Load non-critical CSS async -->
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" media="print" onload="this.media='all'">
 
-  <!-- Google Fonts - load properly -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+  <!-- Google Fonts - load with font-display:swap for better performance -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap&font-display=swap" rel="stylesheet">
 
   <!-- Preload critical fonts -->
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet"></noscript>
-
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" as="style">
+  
   <!-- Modulepreload for critical JS -->
   <link rel="modulepreload" href="assets/js/main.js">
-  <link rel="modulepreload" href="assets/vendor/aos/aos.js">
-  <link rel="modulepreload" href="assets/vendor/typed.js/typed.umd.js">
+
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="assets/img/hero-bg.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/profile.jpg" fetchpriority="high">
 
   <!-- Schema.org JSON-LD for Person -->
   <script type="application/ld+json">
@@ -104,7 +110,7 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="assets/img/profile.jpg" alt="Aman Goel - Profile Photo" class="img-fluid rounded-circle" loading="eager" fetchpriority="high">
+        <img src="assets/img/profile.jpg" alt="Aman Goel - Profile Photo" class="img-fluid rounded-circle" loading="eager" fetchpriority="high" width="150" height="150">
         <h1 class="text-light"><a href="index.html">Aman Goel</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="https://open.spotify.com/playlist/7JafW4F6v65MZObOpQE5Rn" class="spotify"><i class="bx bxl-spotify"></i></a>
@@ -190,7 +196,7 @@
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/icecream.jpg" class="img-fluid" alt="Aman Goel enjoying ice cream - a personal moment" loading="lazy">
+            <img src="assets/img/icecream.jpg" class="img-fluid" alt="Aman Goel enjoying ice cream - a personal moment" loading="lazy" width="400" height="500">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3>Basic Facts About Me</h3>
@@ -245,103 +251,69 @@
           <h5><a href="https://leetcode.com/u/wolfie8935/">Check Out My Leetcode</a></h5>
           <p align="justify">As I've mentioned earlier, similar to a wolf, I enjoy continually 
             challenging myself with various tasks and acquiring new and enhanced skills. 
-            Currently, I am in the process of learning the following skills.</p>
+            Here's a comprehensive overview of my technical expertise.</p>
         </div>
 
-        <div class="row skills-content">
-
-          <div class="col-lg-6" data-aos="fade-up">
-
-            <div class="progress">
-              <span class="skill">DATA ANALYTICS<i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+        <div class="skills-container">
+          <div class="skill-category" data-aos="fade-up">
+            <div class="skill-category-header">
+              <i class="bx bx-brain"></i>
+              <h3>Expertise Area</h3>
             </div>
-
-            <div class="progress">
-              <span class="skill">MACHINE LEARNING <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+            <div class="skill-tags">
+              <span class="skill-tag" data-priority="high">Artificial Intelligence (AI)</span>
+              <span class="skill-tag" data-priority="high">Machine Learning</span>
+              <span class="skill-tag" data-priority="high">Deep Learning</span>
+              <span class="skill-tag" data-priority="high">Neural Networks</span>
+              <span class="skill-tag" data-priority="high">Computer Vision</span>
+              <span class="skill-tag" data-priority="high">Natural Language Processing (NLP)</span>
+              <span class="skill-tag">Predictive Analytics</span>
+              <span class="skill-tag">MLOPS</span>
+              <span class="skill-tag">Data Analytics</span>
+              <span class="skill-tag">Data Science</span>
             </div>
-
-            <div class="progress">
-              <span class="skill">NLP <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">AI <i class="val">45%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">LLM <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">DATA STRUCTURES <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
           </div>
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="progress">
-              <span class="skill">UNREAL ENGINE 5 <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+          <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+            <div class="skill-category-header">
+              <i class="bx bx-code-alt"></i>
+              <h3>Programming Languages</h3>
             </div>
-
-            <div class="progress">
-              <span class="skill">C/ C++ <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+            <div class="skill-tags">
+              <span class="skill-tag" data-priority="high">Python</span>
+              <span class="skill-tag">C</span>
+              <span class="skill-tag">C++</span>
+              <span class="skill-tag">SQL</span>
             </div>
-
-            <div class="progress">
-              <span class="skill">PYTHON <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">GIT & GITHUB <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">FIGMA <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">FULL STACK <i class="val">72.10%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="72.10" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
           </div>
 
+          <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+            <div class="skill-category-header">
+              <i class="bx bx-layer"></i>
+              <h3>Technology Stack</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag" data-priority="high">PyTorch</span>
+              <span class="skill-tag" data-priority="high">TensorFlow</span>
+              <span class="skill-tag" data-priority="high">Scikit-learn</span>
+              <span class="skill-tag" data-priority="high">NVIDIA CUDA</span>
+              <span class="skill-tag" data-priority="high">MLflow</span>
+              <span class="skill-tag">PowerBI</span>
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">Photoshop</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">GitHub</span>
+              <span class="skill-tag">Linux</span>
+              <span class="skill-tag">Unreal Engine 5.1</span>
+              <span class="skill-tag">LangChain</span>
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">Flask</span>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -438,7 +410,7 @@
             <div class="col-md-3 col-6">
               <div class="achievement-counter">
                 <div class="counter-number">
-                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1">0</span>
+                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1">0</span>+
                 </div>
                 <div class="counter-label">Technical Awards</div>
               </div>
@@ -446,7 +418,7 @@
             <div class="col-md-3 col-6">
               <div class="achievement-counter">
                 <div class="counter-number">
-                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1">0</span>+
+                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1">0</span>+
                 </div>
                 <div class="counter-label">Sports Medals</div>
               </div>
@@ -454,7 +426,7 @@
             <div class="col-md-3 col-6">
               <div class="achievement-counter">
                 <div class="counter-number">
-                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="7" data-purecounter-duration="1">0</span>
+                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1">0</span>+
                 </div>
                 <div class="counter-label">Competitions</div>
               </div>
@@ -462,7 +434,7 @@
             <div class="col-md-3 col-6">
               <div class="achievement-counter">
                 <div class="counter-number">
-                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1">0</span>
+                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1">0</span>+
                 </div>
                 <div class="counter-label">Years of Excellence</div>
               </div>
@@ -505,6 +477,14 @@
                 <li>Finetuning of Llama Model on Text Summerization</li>
                 <li><a href="https://github.com/Wolfie8935/Intel-Unnati-GenAI-Chatbot">Project Link</a></li>
                 <li><a href="https://drive.google.com/file/d/1HdakCZiTqkYCFXqJaYCvr8wgFcM-8ZfW/view?usp=drive_link">Internship certificate</a></li>
+              </ul>
+            </div>
+            <div class="resume-item pb-0">
+              <h4>FoxTrading/1stop</h4>
+              <h5>Aug 2024 - Sep 2024</h5>
+              <p><em>Intern · Internship Online</em></p>
+              <ul>
+                <li>Constructed predictive ML models for stock price forecasting, obtaining 97% accuracy.</li>
               </ul>
             </div>
           </div>
@@ -561,7 +541,7 @@
           <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <div class="project-content">
               <div class="project-img">
-                <img src="./assets/project images/Personal_Website_Main.png" alt="Aman Goel's Personal Portfolio Website - Screenshot" loading="lazy">
+                <img src="./assets/project images/Personal_Website_Main.png" alt="Aman Goel's Personal Portfolio Website - Screenshot" loading="lazy" width="300" height="225">
               </div>
               <div class="project-info">
                 <h3>Personal Website</h3>
@@ -578,7 +558,7 @@
           <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <div class="project-content">
               <div class="project-img">
-                <img src="./assets/project images/3D Website.png" alt="Aman Goel's 3D Portfolio Website - Interactive ThreeJS Version" loading="lazy">
+                <img src="./assets/project images/3D Website.png" alt="Aman Goel's 3D Portfolio Website - Interactive ThreeJS Version" loading="lazy" width="300" height="225">
               </div>
               <div class="project-info">
                 <h3>3D Personal Website</h3>
@@ -595,7 +575,7 @@
           <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <div class="project-content">
               <div class="project-img">
-                <img src="./assets/project images/Intel Unnati GenAi.png" alt="Intel Unnati GenAI Chatbot Project by Aman Goel" loading="lazy">
+                <img src="./assets/project images/Intel Unnati GenAi.png" alt="Intel Unnati GenAI Chatbot Project by Aman Goel" loading="lazy" width="300" height="225">
               </div>
               <div class="project-info">
                 <h3>Intel Unnati GenAI Chatbot</h3>
@@ -612,7 +592,7 @@
           <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <div class="project-content">
               <div class="project-img">
-                <img src="./assets/project images/Screen Control Using Gestures.png" alt="Screen Control Using Gestures Project - Computer Vision Application by Aman Goel" loading="lazy">
+                <img src="./assets/project images/Screen Control Using Gestures.png" alt="Screen Control Using Gestures Project - Computer Vision Application by Aman Goel" loading="lazy" width="300" height="225">
               </div>
               <div class="project-info">
                 <h3>Screen Control Using Gestures</h3>
@@ -629,7 +609,7 @@
           <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <div class="project-content">
               <div class="project-img">
-                <img src="./assets/project images/NASA.png" alt="NASA Turbofan Predictive Maintenance Project by Aman Goel" loading="lazy">
+                <img src="./assets/project images/NASA.png" alt="NASA Turbofan Predictive Maintenance Project by Aman Goel" loading="lazy" width="300" height="225">
               </div>
               <div class="project-info">
                 <h3>Predictive maintenance NASA Turbofan</h3>
@@ -646,7 +626,7 @@
           <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <div class="project-content">
               <div class="project-img">
-                <img src="./assets/project images/Suppliment Sales Prediction.png" alt="Supplement Sales Prediction ML Project by Aman Goel" loading="lazy">
+                <img src="./assets/project images/Suppliment Sales Prediction.png" alt="Supplement Sales Prediction ML Project by Aman Goel" loading="lazy" width="300" height="225">
               </div>
               <div class="project-info">
                 <h3>Supplement Sales Prediction</h3>
@@ -654,74 +634,6 @@
                 <div class="project-links">
                   <a href="https://github.com/Wolfie8935/1Stop-Supplement-Sales-Prediction" target="_blank" class="github-link">
                     <i class="bx bxl-github"></i> View Code
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
-            <div class="project-content">
-              <div class="project-img">
-                <img src="./assets/project images/Kindle Sentiment Analysis.png" alt="Kindle Reviews Sentiment Analysis NLP Project by Aman Goel" loading="lazy">
-              </div>
-              <div class="project-info">
-                <h3>Kindle Sentiment Analysis</h3>
-                <p>Analysis of sentiments from Kindle user reviews</p>
-                <div class="project-links">
-                  <a href="https://github.com/Wolfie8935/Kindle-Sentiment-analysis" target="_blank" class="github-link">
-                    <i class="bx bxl-github"></i> View Code
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
-            <div class="project-content">
-              <div class="project-img">
-                <img src="./assets/project images/Simon Game.png" alt="Simon Memory Game Web Development Project by Aman Goel" loading="lazy">
-              </div>
-              <div class="project-info">
-                <h3>Simon Game</h3>
-                <p>Interactive memory game based on the classic Simon</p>
-                <div class="project-links">
-                  <a href="https://wolfie8935.github.io/simon-game/" target="_blank" class="github-link">
-                    <i class="bx bxl-github"></i> View Demo
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
-            <div class="project-content">
-              <div class="project-img">
-                <img src="./assets/project images/Drum Game.png" alt="Interactive Drum Game Web Application by Aman Goel" loading="lazy">
-              </div>
-              <div class="project-info">
-                <h3>Drum Game</h3>
-                <p>Interactive drum simulation game with sounds</p>
-                <div class="project-links">
-                  <a href="https://wolfie8935.github.io/drum-game/" target="_blank" class="github-link">
-                    <i class="bx bxl-github"></i> View Demo
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="project-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
-            <div class="project-content">
-              <div class="project-img">
-                <img src="./assets/project images/Object Assault.png" alt="Object Assault 3D Game - Unreal Engine Project by Aman Goel" loading="lazy">
-              </div>
-              <div class="project-info">
-                <h3>Object Assault</h3>
-                <p>A 3D game created with advanced physics simulation</p>
-                <div class="project-links">
-                  <a href="https://drive.google.com/drive/folders/1brSQSSyFWYgMBq4dv0WEAwvmr7MRtezN?usp=drive_link" target="_blank" class="github-link">
-                    <i class="bx bx-link-external"></i> View Project
                   </a>
                 </div>
               </div>
@@ -868,9 +780,9 @@
         <div class="section-title">
           <h2>Contact Me</h2>
         </div>
-        
+
         <div class="visme_d" data-title="Untitled Project" data-url="n08zj8wm-untitled-project" data-domain="forms" data-full-page="false" data-min-height="500px" data-form-id="35990"></div>
-      </div>
+              </div>
     </section>
     <!-- End Contact Section -->
   </main><!-- End #main -->
@@ -889,45 +801,44 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- All JS Resources loaded normally to ensure things work -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  <!-- All JS Resources with defer to not block page loading -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js" defer></script>
+  <script src="assets/vendor/aos/aos.js" defer></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js" defer></script>
+  <script src="assets/vendor/php-email-form/validate.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" defer></script>
 
   <!-- Template Main JS Files -->
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/dark.js"></script>
-  <script src="./assets/js/project.js"></script>
-  <script src="./assets/js/projects1.js"></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/dark.js" defer></script>
+  <script src="./assets/js/project.js" defer></script>
+  <script src="./assets/js/projects1.js" defer></script>
 
   <!-- Initialize vanilla-tilt -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       if (typeof VanillaTilt !== 'undefined') {
-        VanillaTilt.init(document.querySelectorAll(".project-card"), {
-          max: 10,
-          speed: 400,
-          glare: true,
-          "max-glare": 0.3,
+    VanillaTilt.init(document.querySelectorAll(".project-card"), {
+      max: 10,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.3,
           scale: 1.05
         });
       }
     });
   </script>
 
-  <!-- Visme form -->
-  <script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
+  <!-- Visme form - load after DOM is ready -->
+  <script src="https://static-bundles.visme.co/forms/vismeforms-embed.js" defer></script>
 
-  <!-- Custom cursor elements -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-dot-outline"></div>
+<!-- Custom cursor elements -->
+<div class="cursor-dot"></div>
+<div class="cursor-dot-outline"></div>
 
 </body>
 
