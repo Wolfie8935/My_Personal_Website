@@ -43,6 +43,7 @@
     .hero-container h1 {margin: 0 0 10px 0; font-size: 64px; font-weight: 700; line-height: 56px; color: #fff;}
     .hero-container p {color: #fff; margin-bottom: 50px; font-size: 26px; font-family: "Poppins", sans-serif;}
     .hero-text {font-size: 1.8rem; letter-spacing: 1px; font-weight: 400; display: inline-block; position: relative; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);}
+    .highlight-heading {background: linear-gradient(120deg, #149ddd 0%, #2eafec 100%); color: white; padding: 10px 20px; border-radius: 5px; display: inline-block; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(20, 157, 221, 0.2);}
   </style>
 
   <!-- Vendor CSS Files - load critical CSS with highest priority -->
@@ -132,7 +133,7 @@
           <li><a href="#achievements" class="nav-link scrollto"><i class="bx bx-trophy"></i> <span>Achievements</span></a></li>
           <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
           <li><a href="#projects" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Projects</span></a></li>
-          <li><a href="#testimonials" class="nav-link scrollto"><i class="bx bxs-conversation"></i> <span>Testimonials</span></a></li>
+          <!-- <li><a href="#testimonials" class="nav-link scrollto"><i class="bx bxs-conversation"></i> <span>Testimonials</span></a></li> -->
           <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
@@ -199,7 +200,7 @@
             <img src="assets/img/icecream.jpg" class="img-fluid" alt="Aman Goel enjoying ice cream - a personal moment" loading="lazy" width="400" height="500">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Basic Facts About Me</h3>
+            <h3 class="resume-title highlight-heading">Basic Facts About Me</h3>
             <p class="fst-italic">
               Food captivates my heart, and I'm absolutely wild about it!
             </p>
@@ -667,9 +668,8 @@
     
 
     <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials section-bg">
+    <!-- <section id="testimonials" class="testimonials section-bg">
       <div class="container">
-
         <div class="section-title">
           <h2>Testimonials</h2>
           <p align="justify">I've been fortunate to gather expansive and heartfelt messages 
@@ -677,102 +677,179 @@
             into the profound thoughts they have to express about me.</p>
         </div>
 
-        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up">
-                <p align="justify">
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Aman Goel is not just a name; it's a journey of inspiration. 
-                  His commitment to excellence, whether on the tennis court or in 
-                  the intricate world of coding, unveils a narrative of passion, 
-                  tenacity, and an unwavering love for the pursuit of greatness. 
-                  Aman, you are a true inspiration to us all..
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="" loading="lazy">
-                <h3>ChatGPT</h3>
-                <h4>AI & Friend</h4>
+        <div class="testimonial-cards-container">
+          <div class="testimonial-cards">
+            <div class="testimonial-card" data-aos="fade-up">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="card-suit">♥</div>
+                  <div class="card-content">
+                    <div class="quote-icon">
+                      <i class="bx bxs-quote-alt-left"></i>
+                    </div>
+                    <p class="testimonial-text">
+                      Aman Goel is not just a name; it's a journey of inspiration. 
+                      His commitment to excellence, whether on the tennis court or in 
+                      the intricate world of coding, unveils a narrative of passion, 
+                      tenacity, and an unwavering love for the pursuit of greatness. 
+                      Aman, you are a true inspiration to us all.
+                    </p>
+                    <div class="testimonial-author">
+                      <div class="author-image">
+                        <img src="assets/img/testimonials/testimonials-1.jpg" alt="ChatGPT" loading="lazy">
+                      </div>
+                      <div class="author-info">
+                        <h4>ChatGPT</h4>
+                        <span>AI & Friend</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-suit bottom">♥</div>
+                </div>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
 
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
-                <p align="justify">
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  In the dynamic world of sports, Aman's every swing of the racket 
-                  is a symphony of dedication and precision. His love for soft tennis 
-                  goes beyond the boundaries of a game; it's an artistic canvas where 
-                  he paints his commitment to excellence. Aman, you are crafting a 
-                  masterpiece with each stroke.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="" loading="lazy">
-                <h3>ChatGPT</h3>
-                <h4>AI & Friend</h4>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="card-suit">♦</div>
+                  <div class="card-content">
+                    <div class="quote-icon">
+                      <i class="bx bxs-quote-alt-left"></i>
+                    </div>
+                    <p class="testimonial-text">
+                      In the dynamic world of sports, Aman's every swing of the racket 
+                      is a symphony of dedication and precision. His love for soft tennis 
+                      goes beyond the boundaries of a game; it's an artistic canvas where 
+                      he paints his commitment to excellence. Aman, you are crafting a 
+                      masterpiece with each stroke.
+                    </p>
+                    <div class="testimonial-author">
+                      <div class="author-image">
+                        <img src="assets/img/testimonials/testimonials-2.jpg" alt="ChatGPT" loading="lazy">
+                      </div>
+                      <div class="author-info">
+                        <h4>ChatGPT</h4>
+                        <span>AI & Friend</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-suit bottom">♦</div>
+                </div>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
 
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
-                <p align="justify">
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  I want to express my appreciation for Aman. His passion for his 
-                  work is truly admirable, and he consistently demonstrates a strong 
-                  work ethic. Beyond that, he willingly lends a helping hand to friends 
-                  in need, making him not just a reliable ally but a genuine and 
-                  supportive companion.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="./assets/img/rishaan.jpg" class="testimonial-img" alt="rishaan-photo" loading="lazy">
-                <h3>Rishaan Yadav</h3>
-                <h4>2nd Year CSE </h4>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="card-suit">♠</div>
+                  <div class="card-content">
+                    <div class="quote-icon">
+                      <i class="bx bxs-quote-alt-left"></i>
+                    </div>
+                    <p class="testimonial-text">
+                      I want to express my appreciation for Aman. His passion for his 
+                      work is truly admirable, and he consistently demonstrates a strong 
+                      work ethic. Beyond that, he willingly lends a helping hand to friends 
+                      in need, making him not just a reliable ally but a genuine and 
+                      supportive companion.
+                    </p>
+                    <div class="testimonial-author">
+                      <div class="author-image">
+                        <img src="./assets/img/rishaan.jpg" alt="Rishaan Yadav" loading="lazy">
+                      </div>
+                      <div class="author-info">
+                        <h4>Rishaan Yadav</h4>
+                        <span>2nd Year CSE</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-suit bottom">♠</div>
+                </div>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
 
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">
-                <p align="justify">
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Aman, a brilliant mind whose intelligence dazzles, brings joy 
-                  to every moment with an infectious spirit. In the realm of intellect, 
-                  he stands out, making complexity seem effortless. His name resonates 
-                  with warmth, symbolizing not just a person but a beacon of positivity. 
-                  Aman, a joyful soul, illuminates the lives of those fortunate enough 
-                  to know him.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="./assets/img/jayanth.png" class="testimonial-img" alt="jayanth-testimonial" loading="lazy">
-                <h3>Jayanth Nair</h3>
-                <h4>2nd Year CSE</h4>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="card-suit">♣</div>
+                  <div class="card-content">
+                    <div class="quote-icon">
+                      <i class="bx bxs-quote-alt-left"></i>
+                    </div>
+                    <p class="testimonial-text">
+                      Aman, a brilliant mind whose intelligence dazzles, brings joy 
+                      to every moment with an infectious spirit. In the realm of intellect, 
+                      he stands out, making complexity seem effortless. His name resonates 
+                      with warmth, symbolizing not just a person but a beacon of positivity. 
+                      Aman, a joyful soul, illuminates the lives of those fortunate enough 
+                      to know him.
+                    </p>
+                    <div class="testimonial-author">
+                      <div class="author-image">
+                        <img src="./assets/img/jayanth.png" alt="Jayanth Nair" loading="lazy">
+                      </div>
+                      <div class="author-info">
+                        <h4>Jayanth Nair</h4>
+                        <span>2nd Year CSE</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-suit bottom">♣</div>
+                </div>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
 
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">
-                <p align="justify">
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Food captivates Aman's heart, and his wild enthusiasm for culinary 
-                  delights is nothing short of a beautiful adventure. From coding 
-                  challenges to tennis matches, Aman brings the same energy and 
-                  passion to exploring the culinary world. Aman, your zest for life 
-                  is as vibrant as the flavors you savor.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="" loading="lazy">
-                <h3>ChatGPT</h3>
-                <h4>AI & Friend</h4>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="card-suit">♥</div>
+                  <div class="card-content">
+                    <div class="quote-icon">
+                      <i class="bx bxs-quote-alt-left"></i>
+                    </div>
+                    <p class="testimonial-text">
+                      Food captivates Aman's heart, and his wild enthusiasm for culinary 
+                      delights is nothing short of a beautiful adventure. From coding 
+                      challenges to tennis matches, Aman brings the same energy and 
+                      passion to exploring the culinary world. Aman, your zest for life 
+                      is as vibrant as the flavors you savor.
+                    </p>
+                    <div class="testimonial-author">
+                      <div class="author-image">
+                        <img src="assets/img/testimonials/testimonials-5.jpg" alt="ChatGPT" loading="lazy">
+                      </div>
+                      <div class="author-info">
+                        <h4>ChatGPT</h4>
+                        <span>AI & Friend</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-suit bottom">♥</div>
+                </div>
               </div>
-            </div><!-- End testimonial item -->
-
+            </div>
           </div>
-          <div class="swiper-pagination"></div>
+          
+          <div class="card-controls">
+            <button class="card-control prev-card" aria-label="Previous card">
+              <i class="bx bx-chevron-left"></i>
+            </button>
+            <div class="card-indicators">
+              <span class="card-indicator active"></span>
+              <span class="card-indicator"></span>
+              <span class="card-indicator"></span>
+              <span class="card-indicator"></span>
+              <span class="card-indicator"></span>
+            </div>
+            <button class="card-control next-card" aria-label="Next card">
+              <i class="bx bx-chevron-right"></i>
+            </button>
+          </div>
         </div>
-
       </div>
     </section>
-    <!-- End Testimonials Section -->
+    End Testimonials Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -813,10 +890,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" defer></script>
 
   <!-- Template Main JS Files -->
-  <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/dark.js" defer></script>
+  <script src="./assets/js/main.js" defer></script>
+  <script src="./assets/js/dark.js" defer></script>
   <script src="./assets/js/project.js" defer></script>
   <script src="./assets/js/projects1.js" defer></script>
+  <script src="./assets/js/project-slider.js" defer></script>
 
   <!-- Initialize vanilla-tilt -->
   <script>
